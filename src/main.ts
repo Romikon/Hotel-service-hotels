@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { config } from './hotel/config/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { Logger, ValidationPipe } from '@nestjs/common';
 
 const appSwaggerSchema = new DocumentBuilder()
   .setTitle('Hotel Service')
@@ -10,11 +11,14 @@ const appSwaggerSchema = new DocumentBuilder()
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe());
+
+  const logger = new Logger();
 
   const document = SwaggerModule.createDocument(app, appSwaggerSchema);
   SwaggerModule.setup('api', app, document);
 
   await app.listen(config.port);
-  console.log(`Application is running on: http://localhost:${config.port}`);
+  logger.log(`Application is running on: http://localhost:${config.port}`);
 }
 bootstrap();
