@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { HotelEntity } from '../entities/hotel.entity';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { UpdateHotelDto } from '../dto/put.hotel.dto';
+import { CreateHotelDto } from '../dto/create.hotel.dto';
 
 @Injectable()
 export class HotelService {
@@ -36,7 +37,7 @@ export class HotelService {
     
   }
 
-  async createHotel(hotelDto: GetHotelDto): Promise<GetHotelDto> {
+  async createHotel(hotelDto: CreateHotelDto): Promise<CreateHotelDto> {
     try {
       const hotelEntity = await this.hotelRepository.save(hotelDto);
       
