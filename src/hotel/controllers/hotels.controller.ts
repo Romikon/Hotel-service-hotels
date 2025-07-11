@@ -3,6 +3,7 @@ import { HotelService } from '../services/hotels.service';
 import { GetHotelDto } from '../dto/get.hotel.dto';
 import { UpdateHotelDto } from '../dto/put.hotel.dto';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { CreateHotelDto } from '../dto/create.hotel.dto';
 
 @Controller('hotels')
 export class HotelController {
@@ -20,8 +21,8 @@ export class HotelController {
 
   @Post()
   createHotel( 
-    @Body() hotelDto: GetHotelDto,
-  ): Promise<GetHotelDto> {
+    @Body() hotelDto: CreateHotelDto,
+  ): Promise<CreateHotelDto> {
     return this.hotelService.createHotel(hotelDto);
   }
 
