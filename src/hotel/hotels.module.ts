@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { HotelController } from './controllers/hotels.controller';
 import { HotelService } from './services/hotels.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { dataSourceOptions } from './db/datasource';
 import { HotelEntity } from './entities/hotel.entity';
 
 @Module({

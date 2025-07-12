@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { config } from './hotel/config/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { config } from './config/config';
 
 const appSwaggerSchema = new DocumentBuilder()
   .setTitle('Hotel Service')

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { HotelModule } from './hotel/hotels.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { dataSourceOptions } from './hotel/db/datasource';
+import { dataSourceOptions } from './db/datasource';
 
 @Module({
   imports: [
